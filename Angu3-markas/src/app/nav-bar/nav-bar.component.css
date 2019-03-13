@@ -1,0 +1,15 @@
+ul li {
+    width: 200px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 33px;
+    display: inline-block;
+    margin: 0;
+    
+}
+
+:host {
+    display: flex;
+    justify-content:center;
+}

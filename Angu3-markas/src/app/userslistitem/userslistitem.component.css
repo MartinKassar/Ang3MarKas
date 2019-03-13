@@ -1,0 +1,9 @@
+li:hover {
+    transform: scale(1.05);
+  }
+
+li {
+  border: black solid 1px;
+  list-style: none;
+  margin: auto;
+}

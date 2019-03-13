@@ -1,0 +1,17 @@
+.colorbutton {
+    font-size: 14px;
+    text-decoration: none;
+    color: black;
+    border: black 1px solid;
+    padding: 10px 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+    box-shadow: 0 8px #999;    
+}
+  
+  
+  .colorbutton:active {
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+

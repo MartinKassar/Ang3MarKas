@@ -1,0 +1,9 @@
+
+<div id="position" *ngIf="loggedUser">
+    <div class="list">
+    <app-userslist [users]="userList"></app-userslist>
+    </div>
+    <app-editusers (addUser)="addUser($event)" (removeUser)="removeUser($event)" [usersList]="userList"></app-editusers>
+</div>
+
+<div *ngIf="!loggedUser"><h1>Log in to view dashboard</h1></div>

@@ -1,0 +1,14 @@
+<div class="form" *ngIf="!loggedUser">
+  <label><h2>Username</h2> </label>
+  <br>
+  <input class="form-control form-control-lg" type="text" name="title" [(ngModel)]="user" placeholder="Add user...">
+<button class="stylebutton" (click)="onClickLogin()">Login</button>
+
+</div>
+{{ clickMessage }}
+
+<div class="logout" *ngIf="loggedUser">
+  <h1>You are now logged in!</h1>
+  <h1>Welcome {{ loggedUser }}</h1>
+  <button (click)="logOut()">log out</button>
+</div>

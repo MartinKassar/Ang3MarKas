@@ -1,0 +1,12 @@
+  <h2>Userlist:</h2>
+  <div class="userlist">
+  <ul class="list-group">
+  <app-userslistitem [user]="user" *ngFor="let user of users" [isSpecial]="isSpecial" [color]="color"></app-userslistitem>
+  </ul>
+  <button class="colorbutton" (click)="changeColor()" [ngStyle]="{color: color}">Change Color</button>
+  <br>
+  <br>
+  Color:
+  {{ color }}
+  </div>
+

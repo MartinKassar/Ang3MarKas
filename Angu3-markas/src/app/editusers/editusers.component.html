@@ -1,0 +1,8 @@
+<div class="form">
+      <label><h2>Name:</h2> </label>
+      <br>
+      <input class="form-control form-control-lg" type="text" name="title" [(ngModel)]="addUsername" placeholder="Add user...">
+    <button class="stylebutton"  (click)="onClickAdd()">Add</button>
+    <button class="styleremove" (click)="onClickRemove()">Remove</button>
+    {{clickMessage}}
+  </div>
