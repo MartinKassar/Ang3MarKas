@@ -40,9 +40,8 @@ export class LoginComponent implements OnInit {
     this.loggedUser = this.authService.checkIfLoggedIn()
   }
 
-  log(x):void {
-    console.log(x)
-    
+  onSubmit() {
+    console.log(this.userModel)
   }
 
   ngOnInit() {

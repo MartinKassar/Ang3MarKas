@@ -31,7 +31,7 @@
 </form> -->
 
 
-<form #userForm="ngForm">
+<form #userForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
   {{userModel | json}}
 <hr>
   {{ userForm.value | json}}
@@ -47,5 +47,6 @@
       <input type="password" requried #password="ngModel" name="password" [(ngModel)]="userModel.password">
       
     </div>
-    <button>login</button>
+    <button [disabled]="userForm.form.invalid" type="submit">login</button>
+    <!-- <div class="alert" *ngIf="userForm.form.invalid && userForm.touched">Form is invalid, please check</div> -->
   </form>
