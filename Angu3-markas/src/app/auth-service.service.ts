@@ -24,13 +24,6 @@ export class AuthServiceService {
 
   constructor() { }
 
-  //this method sets a localstorage to the user with the key being user
-  login(email): void {
-    console.log('model', email)
-    localStorage.setItem("user", email)
-
-
-  }
 
 
   // this method clears out local storage
@@ -57,8 +50,12 @@ export class AuthServiceService {
   
   if (email == this.arrayEmail[0] && password == this.arrayPassword[0]) {
     alert("correct")
+    localStorage.setItem("user", email)
    } else if (email == this.arrayEmail[1] && password == this.arrayPassword[1]) {
     alert("correct")
+    localStorage.setItem("user", email)
+    } else {
+      alert('wrong!')
     }
   }
 

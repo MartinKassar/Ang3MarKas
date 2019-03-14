@@ -15,7 +15,7 @@
 </div> 
 
 
-<form #userForm="ngForm" (ngSubmit)="onSubmit()" (ngSubmit)="onClickLogin()" novalidate *ngIf="!loggedUser">
+<form #userForm="ngForm" (ngSubmit)="onSubmit()" novalidate *ngIf="!loggedUser">
   {{userModel | json}}
 <hr>
   

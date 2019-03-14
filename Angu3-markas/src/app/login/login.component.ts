@@ -24,12 +24,7 @@ export class LoginComponent implements OnInit {
   // Function on button login, loggeduser sets to "true" since localstorage adds to loggeduser via service, it calls for a method in service
   //Then it sets loggedUser to the "checkifloggedin" method in service
   //User must type in input
-  onClickLogin():void {
-    console.log(this.userModel.email)
-      this.authService.login(this.userModel.email)
-    this.loggedUser = this.authService.checkIfLoggedIn()
-    
-  }
+  
   
   
 //This method loggs out user, it sends to service that btn is clicked and there it clears the localstorage, and returns "checkIfloggedin" to loggedUser
@@ -38,8 +33,10 @@ export class LoginComponent implements OnInit {
     this.loggedUser = this.authService.checkIfLoggedIn()
   }
 
-  onSubmit() {
+  onSubmit():void {
     this.authService.checkValidation(this.userModel.email, this.userModel.password)
+    this.loggedUser = this.authService.checkIfLoggedIn()
+
   
   }
 
