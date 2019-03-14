@@ -1,4 +1,4 @@
-<div class="form" *ngIf="!loggedUser">
+<!-- <div class="form" *ngIf="!loggedUser">
   <label><h2>Username</h2> </label>
   <br>
   <input class="form-control form-control-lg" type="text" name="title" [(ngModel)]="user" placeholder="Add user...">
@@ -11,4 +11,41 @@
   <h1>You are now logged in!</h1>
   <h1>Welcome {{ loggedUser }}</h1>
   <button (click)="logOut()">log out</button>
-</div>
+</div> -->
+<!-- 
+<form>
+  <div class="form-group">
+    <label for="email">Email</label> -->
+    <!-- <input type="email" ng-model="email" required>  -->
+    <!-- <input type="email" name="email" ngModel [email]="true"> -->
+
+    <!-- <div class="alert" *ngIf="email.touched && !email.valid">Username is required, sir!</div> -->
+  <!-- </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input ngModel name="password" #password="ngModel" type="password" id="password" required minlength="10">
+    <div class="alert" *ngIf="password.touched && !password.valid">Password is required, sir, it also has to be 10!</div>
+    <div class="alert" *ngIf="password.errors.minlength">Length is 10</div>
+  </div>
+  <button>login</button>
+</form> -->
+
+
+<form #userForm="ngForm">
+  {{userModel | json}}
+<hr>
+  {{ userForm.value | json}}
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" required #email="ngModel"  name="email" [(ngModel)]="userModel.email"> 
+      <div class="alert" *ngIf="email.touched && !email.valid">Email is not valid</div>
+      <br>
+      {{email.untouched}}
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" requried #password="ngModel" name="password" [(ngModel)]="userModel.password">
+      
+    </div>
+    <button>login</button>
+  </form>

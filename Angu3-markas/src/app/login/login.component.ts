@@ -12,12 +12,12 @@ export class LoginComponent implements OnInit {
   public user: string //Input value
   public loggedUser: string //String to check if localStorage is empty or not
   public clickMessage: string //Tells user to fill input
-  public userTwo: AdminLogin = new AdminLogin('', '')
+  public userModel: AdminLogin = new AdminLogin('', '')
   
   // runs loggeduser at first to see what it contains before rendering template
   constructor(private authService: AuthServiceService) {
     this.loggedUser = this.authService.checkIfLoggedIn()
-    console.log(this.userTwo)
+    console.log(this.userModel)
   }
   
   // Function on button login, loggeduser sets to "true" since localstorage adds to loggeduser via service, it calls for a method in service
@@ -38,11 +38,12 @@ export class LoginComponent implements OnInit {
   logOut():void {
     this.authService.logOut()
     this.loggedUser = this.authService.checkIfLoggedIn()
-
-    
   }
 
-  
+  log(x):void {
+    console.log(x)
+    
+  }
 
   ngOnInit() {
   }
