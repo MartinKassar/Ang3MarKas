@@ -6,47 +6,30 @@
 
 </div>
 {{ clickMessage }}
+-->
 
-<div class="logout" *ngIf="loggedUser">
+<div *ngIf="loggedUser">
   <h1>You are now logged in!</h1>
-  <h1>Welcome {{ loggedUser }}</h1>
+  <h1>Welcome {{ userModel.email }}</h1>
   <button (click)="logOut()">log out</button>
-</div> -->
-<!-- 
-<form>
-  <div class="form-group">
-    <label for="email">Email</label> -->
-    <!-- <input type="email" ng-model="email" required>  -->
-    <!-- <input type="email" name="email" ngModel [email]="true"> -->
-
-    <!-- <div class="alert" *ngIf="email.touched && !email.valid">Username is required, sir!</div> -->
-  <!-- </div>
-  <div class="form-group">
-    <label for="password">Password</label>
-    <input ngModel name="password" #password="ngModel" type="password" id="password" required minlength="10">
-    <div class="alert" *ngIf="password.touched && !password.valid">Password is required, sir, it also has to be 10!</div>
-    <div class="alert" *ngIf="password.errors.minlength">Length is 10</div>
-  </div>
-  <button>login</button>
-</form> -->
+</div> 
 
 
-<form #userForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
+<form #userForm="ngForm" (ngSubmit)="onSubmit()" (ngSubmit)="onClickLogin()" novalidate *ngIf="!loggedUser">
   {{userModel | json}}
 <hr>
-  {{ userForm.value | json}}
+  
     <div class="form-group">
       <label for="email">Email</label>
-      <input type="email" required #email="ngModel"  name="email" [(ngModel)]="userModel.email"> 
+      <input type="email" required #email="ngModel"  name="email" [(ngModel)]="userModel.email" ngModel email> 
       <div class="alert" *ngIf="email.touched && !email.valid">Email is not valid</div>
       <br>
-      {{email.untouched}}
     </div>
     <div class="form-group">
       <label for="password">Password</label>
-      <input type="password" requried #password="ngModel" name="password" [(ngModel)]="userModel.password">
+      <input type="password" minlength="10" #password="ngModel" name="password" [(ngModel)]="userModel.password" required>
+      <div class="alert" *ngIf="password.touched && !password.valid">Password is not valid</div>
       
     </div>
     <button [disabled]="userForm.form.invalid" type="submit">login</button>
-    <!-- <div class="alert" *ngIf="userForm.form.invalid && userForm.touched">Form is invalid, please check</div> -->
   </form>

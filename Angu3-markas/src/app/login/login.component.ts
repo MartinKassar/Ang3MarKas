@@ -9,7 +9,8 @@ import { AdminLogin} from '../models/admin-login.model'
 })
 export class LoginComponent implements OnInit {
 
-  public user: string //Input value
+  // public user: string //Input value
+  
   public loggedUser: string //String to check if localStorage is empty or not
   public clickMessage: string //Tells user to fill input
   public userModel: AdminLogin = new AdminLogin('', '')
@@ -24,13 +25,10 @@ export class LoginComponent implements OnInit {
   //Then it sets loggedUser to the "checkifloggedin" method in service
   //User must type in input
   onClickLogin():void {
-    if (this.user != '' && this.user != undefined) { //If statement to guide the user and emit on add if its not null
-      this.authService.login(this.user)
+    console.log(this.userModel.email)
+      this.authService.login(this.userModel.email)
     this.loggedUser = this.authService.checkIfLoggedIn()
-    this.clickMessage = null
-      } else {
-        this.clickMessage = "You must type in username"
-      }
+    
   }
   
   
@@ -41,7 +39,8 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.userModel)
+    this.authService.checkValidation(this.userModel.email, this.userModel.password)
+  
   }
 
   ngOnInit() {
