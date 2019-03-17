@@ -1,13 +1,3 @@
-<!-- <div class="form" *ngIf="!loggedUser">
-  <label><h2>Username</h2> </label>
-  <br>
-  <input class="form-control form-control-lg" type="text" name="title" [(ngModel)]="user" placeholder="Add user...">
-<button class="stylebutton" (click)="onClickLogin()">Login</button>
-
-</div>
-{{ clickMessage }}
--->
-
 <div *ngIf="loggedUser">
   <h1>You are now logged in!</h1>
   <h1>Welcome {{ userModel.email }}</h1>
@@ -16,14 +6,12 @@
 
 
 <form #userForm="ngForm" (ngSubmit)="onSubmit()" novalidate *ngIf="!loggedUser">
-  {{userModel | json}}
-<hr>
-  
     <div class="form-group">
       <label for="email">Email</label>
       <input type="email" required #email="ngModel"  name="email" [(ngModel)]="userModel.email" ngModel email> 
       <div class="alert" *ngIf="email.touched && !email.valid">Email is not valid</div>
       <br>
+      <hr>
     </div>
     <div class="form-group">
       <label for="password">Password</label>

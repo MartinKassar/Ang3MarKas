@@ -1,3 +1,5 @@
+//This service class sets localstorage and checks log in validation.
+
 import { Injectable } from '@angular/core';
 import { AdminFull } from './models/admin-full.model'
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
@@ -11,11 +13,13 @@ import {throwError as observableThrowError,  Observable } from 'rxjs';
 })
 export class AuthServiceService {
 
-  private _url: string = "https://jsonplaceholder.typicode.com/users";
+  private _url: string = "https://jsonplaceholder.typicode.com/users"; //My userlist object
 
-  arrayEmail: string[] = []
-  arrayPassword: string[] = []
+  arrayEmail: string[] = [] //Array of emails containing correct emails
+  arrayPassword: string[] = [] // Array of password containing correct passwords
 
+
+  // Correct user to log in.
   public admins: AdminFull[] = [{
     firstName: 'John',
     lastName: 'Doe',
@@ -45,6 +49,7 @@ export class AuthServiceService {
     return localStorage.getItem("user")
   }
 
+  // this method checks validation of userinput
   checkValidation(email, password): any {
     for(var i = 0; i < this.admins.length; i++) {
       this.arrayEmail.push(this.admins[i].email)
@@ -62,7 +67,7 @@ export class AuthServiceService {
     } 
 
   }
-
+ // this method gets a userlist object from a json placeholder
   getUsers(): Observable<any[]>{
     return this.http.get<any[]>(this._url)
   }

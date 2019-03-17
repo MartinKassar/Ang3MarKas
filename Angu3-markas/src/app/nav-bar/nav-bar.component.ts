@@ -1,3 +1,5 @@
+// This class is the navbar that is always sticked on the top in all tabs.
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({

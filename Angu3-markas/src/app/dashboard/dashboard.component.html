@@ -3,13 +3,8 @@
     <div class="list">
     <app-userslist [users]="users"></app-userslist>
     </div>
-    <app-editusers (addUser)="addUser($event)" (removeUser)="removeUser($event)" [usersList]="userList"></app-editusers>
+    <app-editusers></app-editusers>
 </div>
 
 <div *ngIf="!loggedUser"><h1>Log in to view dashboard</h1></div>
 
-<!-- <h2>Employee List</h2>
-    <h3>{{errorMsg}}</h3>
-    <ul *ngFor="let user of users">
-      <li>{{user.name}}</li>
-    </ul> -->

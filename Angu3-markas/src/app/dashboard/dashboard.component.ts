@@ -10,11 +10,10 @@ import { AuthServiceService } from '../auth-service.service';
 })
 export class DashboardComponent implements OnInit {
   
-  // My array of users containing only strings
-  userList: string[] = []
   // LoggedUser is going to contain wether we have localstorage or not and template rendering depends on it
   loggedUser: string
 
+  //My userlist from JsonPlaceHolder
   public users = [];
 
   // Running to see what loggedUser contains first and renders the template
@@ -22,26 +21,15 @@ export class DashboardComponent implements OnInit {
     this.loggedUser = this.authService.checkIfLoggedIn()
    }
 
+   //Calling on a method in authservice that gets an object from jsonplaceholder, and the subscribes to it.
   ngOnInit() {
     this.authService.getUsers()
     .subscribe(data => this.users = data);
     
   }
-  // Receives and event from "Add button" and adds the event to the array.
-  // If statement to check if input value "event" is empty or not
-  addUser(event):void {
-    if (event != null) {
-    this.userList.push(event)
-    }
-  }
-
-  // Receives an event from "Remove button" and removes a user from the array
-  removeUser():void {
-    this.userList.pop()
-  }
+  
   
 
-  
 }
 
 

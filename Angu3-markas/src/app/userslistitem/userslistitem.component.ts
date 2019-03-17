@@ -1,3 +1,5 @@
+//This class is the userlistemITEM.
+
 import { Component, OnInit, Input } from '@angular/core';
 
 

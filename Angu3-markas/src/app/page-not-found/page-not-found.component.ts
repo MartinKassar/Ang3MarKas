@@ -1,3 +1,5 @@
+//This component displays when a user enters wrong URL inside the domain
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({

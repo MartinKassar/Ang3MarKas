@@ -1,3 +1,4 @@
+//This class displays the userslist gathered from JSON placeholder.
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
@@ -6,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./userslist.component.css']
 })
 export class UserslistComponent implements OnInit {
-@Input() users: string[] //Takes in Users
+@Input() users: string[] //Takes in Users from dashboard
 
 letters: string = '0123456789ABCDEF' //Collection of hexa colors
 color: string = '#' // The hexa color combination
