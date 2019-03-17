@@ -1,8 +1,8 @@
 <ul *ngIf="userProfile">
-    <li><h2><strong>Username:</strong> {{ userProfile.username }}</h2></li>
-    <li><h2><strong>Name:</strong> {{ userProfile.name }}</h2></li>
-    <li><h2><strong>Adress:</strong> {{ userProfile.address.street }}</h2></li>
-    <li><h2><strong>Zip-Code:</strong> {{ userProfile.address.zipcode }}</h2></li>
+    <li><h1><strong>Username:</strong> <div class="letter"> {{ userProfile.username }}</div></h1></li>
+    <li><h1><strong>Name:</strong> <div class="letter"> {{ userProfile.name }}</div></h1></li>
+    <li><h1><strong>Adress:</strong> <div class="letter">{{ userProfile.address.street }}</div></h1></li>
+    <li><h1><strong>Zip-Code:</strong> <div class="letter"> {{ userProfile.address.zipcode }}</div></h1></li>
 </ul>
 
 
