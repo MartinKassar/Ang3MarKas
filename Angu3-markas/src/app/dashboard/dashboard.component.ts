@@ -15,12 +15,16 @@ export class DashboardComponent implements OnInit {
   // LoggedUser is going to contain wether we have localstorage or not and template rendering depends on it
   loggedUser: string
 
+  public users = [];
+
   // Running to see what loggedUser contains first and renders the template
   constructor(private authService: AuthServiceService) {
     this.loggedUser = this.authService.checkIfLoggedIn()
    }
 
   ngOnInit() {
+    this.authService.getUsers()
+    .subscribe(data => this.users = data);
     
   }
   // Receives and event from "Add button" and adds the event to the array.
@@ -37,6 +41,7 @@ export class DashboardComponent implements OnInit {
   }
   
 
+  
 }
 
 

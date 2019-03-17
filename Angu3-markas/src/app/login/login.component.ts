@@ -18,15 +18,11 @@ export class LoginComponent implements OnInit {
   // runs loggeduser at first to see what it contains before rendering template
   constructor(private authService: AuthServiceService) {
     this.loggedUser = this.authService.checkIfLoggedIn()
-    console.log(this.userModel)
+    
   }
   
-  // Function on button login, loggeduser sets to "true" since localstorage adds to loggeduser via service, it calls for a method in service
-  //Then it sets loggedUser to the "checkifloggedin" method in service
-  //User must type in input
-  
-  
-  
+
+    
 //This method loggs out user, it sends to service that btn is clicked and there it clears the localstorage, and returns "checkIfloggedin" to loggedUser
   logOut():void {
     this.authService.logOut()

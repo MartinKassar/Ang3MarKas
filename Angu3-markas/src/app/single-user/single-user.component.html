@@ -1,2 +1,16 @@
+<ul *ngIf="userProfile">
+    <li><h2>Username: {{ userProfile.username }}</h2></li>
+    <li><h2>Name: {{ userProfile.name }}</h2></li>
+    <li><h2>Adress: {{ userProfile.address.street }}</h2></li>
+    <li><h2>Address: {{ userProfile.address.zipcode }}</h2></li>
 
-<h1>User: {{ username }}</h1>
+
+
+</ul>
+
+
+<!-- <ul *ngFor="let user of users">
+    <li>
+{{ user. name }}
+    </li>
+</ul> -->

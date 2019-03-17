@@ -1,11 +1,17 @@
 import { Injectable } from '@angular/core';
 import { AdminFull } from './models/admin-full.model'
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import {throwError as observableThrowError,  Observable } from 'rxjs';
+
+
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthServiceService {
+
+  private _url: string = "https://jsonplaceholder.typicode.com/users";
 
   arrayEmail: string[] = []
   arrayPassword: string[] = []
@@ -22,7 +28,7 @@ export class AuthServiceService {
     password: '0987654321'
   }];
 
-  constructor() { }
+  constructor(private http:HttpClient) { }
 
 
 
@@ -49,18 +55,24 @@ export class AuthServiceService {
   }
   
   if (email == this.arrayEmail[0] && password == this.arrayPassword[0]) {
-    alert("correct")
     localStorage.setItem("user", email)
    } else if (email == this.arrayEmail[1] && password == this.arrayPassword[1]) {
-    alert("correct")
+
     localStorage.setItem("user", email)
-    } else {
-      alert('wrong!')
-    }
+    } 
+
   }
 
+  getUsers(): Observable<any[]>{
+    return this.http.get<any[]>(this._url)
+  }
+  
+  
 
 }
+
+
+
 
 
 
